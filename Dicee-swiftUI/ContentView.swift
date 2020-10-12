@@ -16,13 +16,28 @@ struct ContentView: View {
             
             VStack {
                 Image("diceeLogo")
-                
-                HStack(spacing: 20) {
-                    Dice(imageName: "dice1")
-                    Dice(imageName: "dice2")
+                Spacer()
+                HStack {
+                    Dice(n: 1)
+                    Dice(n: 6)
                 }
-                .padding()
+                .padding(.horizontal)
+                Spacer()
+                Button(action: {
+                    
+                }, label: {
+                    Text("Roll")
+                        .font(.system(size: 50))
+                        .fontWeight(.heavy)
+                        .foregroundColor(.white)
+                        .padding(.horizontal)
+                    
+                })
+                .background(Color(.red))
+                
+                
             }
+            .padding(.vertical)
         }
     }
 }
@@ -30,12 +45,13 @@ struct ContentView: View {
 
 struct Dice: View {
     
-    var imageName: String
+    let n: Int
     
     var body: some View {
-        Image(imageName)
+        Image("dice\(n)")
             .resizable()
             .aspectRatio(1, contentMode: .fit)
+            .padding()
     }
 }
 
