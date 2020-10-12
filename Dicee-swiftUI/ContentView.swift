@@ -12,10 +12,50 @@ struct ContentView: View {
         ZStack {
             Image("background")
                 .resizable()
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                Image("diceeLogo")
+                
+                HStack(spacing: 20) {
+                    Dice(imageName: "dice1")
+                    Dice(imageName: "dice2")
+                }
+                .padding()
+            }
         }
-        .edgesIgnoringSafeArea(.all)
     }
 }
+
+
+struct Dice: View {
+    
+    var imageName: String
+    
+    var body: some View {
+        Image(imageName)
+            .resizable()
+            .aspectRatio(1, contentMode: .fit)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
